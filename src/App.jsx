@@ -52,16 +52,23 @@ const handleInfiniteScroll = async() => {
 useEffect(() => {
   window.addEventListener('scroll', handleInfiniteScroll)
   return () => window.removeEventListener('scroll', handleInfiniteScroll)
-},[offset] )
+},[] )
 
   return (
-    <div className="wrapper">
+    <main>
+      <div className="header">
       <h1>Pokemon List</h1>
       <div className="searchSection">
         <input type="text" placeholder="Search Pokemon" required value={search} onChange={(e) => setSearch(e.target.value) } />
       </div>
-      <PokemonConainer pokemon={searchData} />
-    </div>
+      </div>
+
+      <div className="wrapper">
+        <div className="pokemonList">
+          <PokemonConainer pokemon={searchData} />
+        </div>
+      </div>
+    </main>
   )
 }
 
