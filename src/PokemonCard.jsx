@@ -1,13 +1,9 @@
 
-
-
-
 const PokemonCard = ({curElm}) => {
+
   return (
     <main>
         <div className="card">
-          <h1>
-          </h1>
             <figure>
                 <img src={curElm.sprites.other.home.front_default} alt={curElm.name} />
             </figure>

@@ -39,8 +39,13 @@ const App = () => {
 //  Infinite Scroll
 
 const handleInfiniteScroll = async() => {
+
+  const innerHeight = window.innerHeight
+  const scrollTop = window.scrollY
+  const scrollHeight = document.documentElement.offsetHeight
+
   try {
-    if(window.innerHeight + document.documentElement.scrollTop + 6 >= document.documentElement.scrollHeight ){
+    if(innerHeight + scrollTop >= scrollHeight ){
       setOffset((prev) => prev + 6 )
     }
   } catch (error) {
