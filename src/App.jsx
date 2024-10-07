@@ -8,22 +8,23 @@ const App = () => {
   const [search, setSearch] = useState('')
   const [offset,setOffset] = useState(0)
 
-  const poekomonData = async() =>{
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=6`)
-    const data = await res.json()
-
-    const pokemonResultData = data.results.map(async(pokemonUrl) => {
-      const res = await fetch(pokemonUrl.url)
-      const data = await res.json()
-      return data
-    })
-
-    const showResult = await Promise.all(pokemonResultData)
-
-    setPokemon((prev) => [...prev, ...showResult]);
-  }
+  
 
   useEffect(() => {
+    const poekomonData = async() =>{
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=6`)
+      const data = await res.json()
+  
+      const pokemonResultData = data.results.map(async(pokemonUrl) => {
+        const res = await fetch(pokemonUrl.url)
+        const data = await res.json()
+        return data
+      })
+  
+      const showResult = await Promise.all(pokemonResultData)
+  
+      setPokemon((prev) => [...prev, ...showResult]);
+    }
     poekomonData()
   },[offset] )
 
