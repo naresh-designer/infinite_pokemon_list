@@ -1,0 +1,66 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  behavior: smooth;
+}
+
+::placeholder{
+  font-family: "Josefin Sans", system-ui;
+  font-size: 18px;
+}
+
+body{
+  font-family: "Josefin Sans", system-ui;
+  font-size: 18px;
+}
+
+h1{
+  margin-block: 50px;
+  text-align: center;
+}
+
+.wrapper{
+  max-width: calc(1200px - 40px);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.grid{
+  display: grid;
+  gap: 30px;
+}
+
+.grid_three{
+  grid-template-columns: repeat(3,1fr);
+}
+
+.card{
+  background-color: rgb(233, 233, 233);
+  padding:0 30px 50px;
+  text-align: center;
+}
+
+.card img{
+  max-width: 200px;
+}
+
+.searchSection{
+  margin-block-end: 50px;
+  margin-inline:auto;
+  max-width: 400px;
+}
+
+.searchSection input{
+  width: 100%;
+  height: 50px;
+  line-height: 55px;
+  border: none;
+  border-bottom: 2px solid rgb(125, 124, 124);
+  background-color: rgba(233, 233, 233,.5);
+  padding-inline: 20px;
+  outline: none;
+  font-family: "Josefin Sans", system-ui;
+  font-size: 18px;
+}
