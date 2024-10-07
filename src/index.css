@@ -64,3 +64,9 @@ h1{
   font-family: "Josefin Sans", system-ui;
   font-size: 18px;
 }
+
+@media screen and (width <= 863px) {
+  .grid_three{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
