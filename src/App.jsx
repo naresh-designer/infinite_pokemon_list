@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import PokemonConainer from "./PokemonConainer"
+import Loading from "./Loading"
 
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
   const [pokemon, setPokemon] = useState([])
   const [search, setSearch] = useState('')
   const [offset,setOffset] = useState(0)
+  const [loading,setLoading] = useState(true)
 
   
 
@@ -23,6 +25,7 @@ const App = () => {
   
       const showResult = await Promise.all(pokemonResultData)
   
+      setLoading(false)
       setPokemon((prev) => [...prev, ...showResult]);
     }
     poekomonData()
@@ -44,9 +47,12 @@ const handleInfiniteScroll = async() => {
   const scrollTop = window.scrollY
   const scrollHeight = document.documentElement.offsetHeight
 
+  
+
   try {
     if(innerHeight + scrollTop >= scrollHeight ){
       setOffset((prev) => prev + 6 )
+      setLoading(true)
     }
   } catch (error) {
     console.log(error);
@@ -69,8 +75,13 @@ useEffect(() => {
       </div>
 
       <div className="wrapper">
+      
+      
         <div className="pokemonList">
           <PokemonConainer pokemon={searchData} />
+          {
+        loading && <Loading/>
+      }
         </div>
       </div>
     </main>
